@@ -20,9 +20,10 @@ The shared `struct file` is the source of file position. Descriptors referring t
 
 ## Try a positional edit
 
-Use Linux or WSL with Make, an x86 compiler supporting 32-bit output, binutils, and QEMU. This repository contains the xv6 tree at its root.
+Use Linux or WSL with Make, an x86 compiler supporting 32-bit output, binutils, and QEMU. The xv6 tree is contained in `xv6-public/`.
 
 ```bash
+cd xv6-public
 make CC=gcc-9 xv6.img fs.img
 make CC=gcc-9 CPUS=1 qemu-nox
 ```
@@ -45,6 +46,6 @@ The demo uses a 256-byte buffer, reads the file size into it without a bound, an
 
 ## Source
 
-The handler is in [sysfile.c](sysfile.c), with constants in [fcntl.h](fcntl.h), user declarations in [user.h](user.h), and dispatch wiring in [syscall.c](syscall.c), [syscall.h](syscall.h), and [usys.S](usys.S). [lseektest.c](lseektest.c) implements the command. The plain [README](README) preserves upstream xv6 information and acknowledgments and is included by the filesystem-image build.
+The handler is in [sysfile.c](xv6-public/sysfile.c), with constants in [fcntl.h](xv6-public/fcntl.h), user declarations in [user.h](xv6-public/user.h), and dispatch wiring in [syscall.c](xv6-public/syscall.c), [syscall.h](xv6-public/syscall.h), and [usys.S](xv6-public/usys.S). [lseektest.c](xv6-public/lseektest.c) implements the command. The plain [README](xv6-public/README) preserves upstream xv6 information and acknowledgments and is included by the filesystem-image build.
 
 This earlier extension is separate from the later process-inspection syscall project. The collection's Linux observation report does not describe this lseek implementation. The SVG explains the source's offset flow, uses outlined Noto Sans, and includes its [font license](docs/assets/NotoSans-OFL.txt). See the [collection](https://github.com/jaeunda/xv6-kernel-extensions) for the other extensions.
